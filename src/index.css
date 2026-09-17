@@ -1,0 +1,227 @@
+/* ---------------------------------------------------------------
+   Design tokens
+   Palette: deep signal ink + warm brass accent + a cool retrieval
+   teal reserved for technical/data moments only.
+----------------------------------------------------------------*/
+:root {
+  --ink: #0f1826;
+  --ink-soft: #142238;
+  --panel: #16263d;
+  --panel-border: rgba(237, 234, 227, 0.1);
+  --paper: #f5f2ea;
+  --text: #ece7dd;
+  --text-dim: #9aa7bb;
+  --text-faint: #6b7688;
+  --gold: #c9a227;
+  --gold-soft: #e0c467;
+  --teal: #4fd1c5;
+
+  --font-display: "Space Grotesk", "Inter", sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --content-width: 1080px;
+  --edge: clamp(20px, 5vw, 64px);
+  --radius: 3px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top, rgba(79, 209, 197, 0.12), transparent 32%),
+    radial-gradient(circle at bottom left, rgba(201, 162, 39, 0.12), transparent 28%),
+    var(--ink);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  perspective: 1600px;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 26px, 0) scale(0.985);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0;
+  color: var(--paper);
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold-soft);
+  outline-offset: 3px;
+}
+
+/* Layout ------------------------------------------------------- */
+.shell {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding-left: var(--edge);
+  padding-right: var(--edge);
+}
+
+section {
+  padding: 88px 0;
+  border-top: 1px solid var(--panel-border);
+}
+
+section:first-of-type {
+  border-top: none;
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.section-head h2 {
+  font-size: clamp(1.5rem, 3vw, 2.05rem);
+}
+
+.section-index {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-faint);
+  white-space: nowrap;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--teal);
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.lede {
+  color: var(--text-dim);
+  font-size: 1.05rem;
+  max-width: 56ch;
+}
+
+/* Buttons -------------------------------------------------------*/
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: var(--radius);
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.btn-primary:hover {
+  background: var(--gold-soft);
+}
+
+.btn-ghost {
+  border-color: var(--panel-border);
+  color: var(--text);
+}
+
+.btn-ghost:hover {
+  border-color: var(--text-dim);
+}
+
+/* Tag chips ------------------------------------------------------*/
+.chip {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  padding: 5px 10px;
+  display: inline-block;
+}
+
+/* Responsive ------------------------------------------------------*/
+@media (max-width: 720px) {
+  section {
+    padding: 64px 0;
+  }
+}

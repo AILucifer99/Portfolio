@@ -1,0 +1,19 @@
+.site-footer {
+  background: var(--paper);
+  color: #4a4638;
+  padding: 22px 0 30px;
+}
+
+.site-footer__row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+}
+
+.site-footer__row a {
+  color: #4a4638;
+}
+
+.site-footer__row a:hover {
+  color: var(--ink);
+}

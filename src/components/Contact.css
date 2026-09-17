@@ -1,0 +1,63 @@
+.contact {
+  background: var(--paper);
+  color: var(--ink);
+  border-top: none;
+  padding: 100px 0;
+}
+
+.contact__inner {
+  max-width: 760px;
+}
+
+.contact .eyebrow {
+  color: #0f6b62;
+}
+
+.contact__headline {
+  color: var(--ink);
+  font-size: clamp(1.7rem, 3.6vw, 2.5rem);
+  max-width: 20ch;
+  margin: 16px 0 18px;
+}
+
+.contact__lede {
+  color: #4a4638;
+  max-width: 52ch;
+}
+
+.contact__actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 34px;
+}
+
+.contact .btn-ghost {
+  border-color: rgba(15, 24, 38, 0.2);
+  color: var(--ink);
+}
+
+.contact .btn-ghost:hover {
+  border-color: var(--ink);
+}
+
+.contact__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px;
+  margin-top: 48px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(15, 24, 38, 0.12);
+  font-size: 0.9rem;
+  color: #4a4638;
+}
+
+.contact__meta a {
+  color: #1a2b45;
+  border-bottom: 1px solid rgba(15, 24, 38, 0.25);
+  padding-bottom: 1px;
+}
+
+.contact__meta a:hover {
+  border-color: var(--ink);
+}
